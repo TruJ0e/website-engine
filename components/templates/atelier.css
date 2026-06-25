@@ -1,0 +1,191 @@
+/* ── ATELIER — Maison Lune ── */
+/* Off-white #faf9f7, charcoal #1a1a1a, sage editorial luxury */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400;500;600&display=swap');
+
+:root {
+  --ate-bg: #faf9f7;
+  --ate-black: #1a1a1a;
+  --ate-charcoal: #2d2d2d;
+  --ate-sage: #8a9e7b;
+  --ate-sage-light: #b5c4a9;
+  --ate-sage-dim: rgba(138, 158, 123, 0.1);
+  --ate-white: #ffffff;
+  --ate-cream: #f5f2ec;
+  --ate-gray-200: #e8e4dc;
+  --ate-gray-400: #999890;
+  --ate-gray-600: #666660;
+  --ate-font: 'Jost', sans-serif;
+  --ate-serif: 'Cormorant Garamond', serif;
+}
+
+.ate { background: var(--ate-bg); color: var(--ate-black); font-family: var(--ate-font); min-height: 100vh; }
+.ate *, .ate *::before, .ate *::after { box-sizing: border-box; margin: 0; padding: 0; }
+.ate a { text-decoration: none; color: inherit; }
+.ate ul { list-style: none; }
+
+/* ── NAV ── */
+.ate-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(250, 249, 247, 0.92); border-bottom: 1px solid var(--ate-gray-200);
+  backdrop-filter: blur(8px);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.5rem 3rem;
+}
+.ate-nav__logo { font-family: var(--ate-serif); font-size: 1.5rem; letter-spacing: 0.05em; font-weight: 300; }
+.ate-nav__logo span { font-style: italic; color: var(--ate-sage); }
+.ate-nav__links { display: flex; align-items: center; gap: 2.5rem; }
+.ate-nav__links a { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ate-gray-400); transition: color 0.2s; }
+.ate-nav__links a:hover { color: var(--ate-black); }
+.ate-nav__contact { color: var(--ate-sage) !important; }
+
+/* ── MANIFESTO HERO ── */
+.ate-hero {
+  position: relative; min-height: 100vh;
+  display: grid; grid-template-columns: 1fr 380px;
+  overflow: hidden; padding-top: 5rem;
+}
+
+.ate-hero__monogram {
+  position: absolute; left: -0.05em; top: 50%; transform: translateY(-60%);
+  font-family: var(--ate-serif); font-size: clamp(18rem, 35vw, 32rem);
+  line-height: 1; color: var(--ate-gray-200); pointer-events: none; z-index: 0;
+  user-select: none; letter-spacing: -0.05em; font-weight: 300;
+}
+
+.ate-hero__left {
+  position: relative; z-index: 1;
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 5rem 5rem 5rem 4rem;
+}
+
+.ate-hero__eyebrow {
+  font-size: 0.65rem; font-weight: 500; letter-spacing: 0.3em;
+  text-transform: uppercase; color: var(--ate-sage); margin-bottom: 2.5rem;
+}
+
+.ate-hero__headline {
+  font-family: var(--ate-serif); font-size: clamp(3rem, 5.5vw, 5.5rem);
+  line-height: 1.05; margin-bottom: 2.5rem;
+  letter-spacing: -0.01em; font-weight: 300;
+}
+.ate-hero__headline em { color: var(--ate-sage); }
+
+.ate-hero__statement {
+  font-size: 0.9rem; color: var(--ate-gray-600); line-height: 1.9;
+  font-weight: 300; max-width: 480px;
+}
+.ate-hero__statement p { margin-bottom: 0.6rem; }
+.ate-hero__statement p:last-child { margin-bottom: 0; }
+
+.ate-hero__actions { display: flex; gap: 1.5rem; margin-top: 3rem; flex-wrap: wrap; }
+
+.ate-hero__right {
+  position: relative; z-index: 1;
+  background: var(--ate-gray-200); overflow: hidden;
+}
+.ate-hero__portrait-placeholder {
+  width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
+  font-size: 0.65rem; color: var(--ate-gray-400); letter-spacing: 0.2em; text-transform: uppercase;
+}
+
+/* ── BUTTONS ── */
+.ate-btn { display: inline-block; padding: 1rem 2.5rem; font-size: 0.7rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; transition: all 0.3s; font-family: var(--ate-font); border: 1px solid transparent; cursor: pointer; }
+.ate-btn--primary { background: var(--ate-black); color: var(--ate-white); border-color: var(--ate-black); }
+.ate-btn--primary:hover { background: var(--ate-charcoal); }
+.ate-btn--outline { background: transparent; border-color: var(--ate-black); color: var(--ate-black); }
+.ate-btn--outline:hover { background: var(--ate-black); color: var(--ate-white); }
+.ate-btn--sage { background: var(--ate-sage); color: var(--ate-white); border-color: var(--ate-sage); }
+.ate-btn--sage:hover { background: #7a8e6b; }
+
+/* ── CONTAINER ── */
+.ate-container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+.ate-section { padding: 8rem 2rem; }
+.ate-section-eyebrow { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: var(--ate-sage); margin-bottom: 1.25rem; }
+.ate-section-title { font-family: var(--ate-serif); font-size: clamp(2.2rem, 4vw, 3.5rem); margin-bottom: 1.5rem; letter-spacing: -0.01em; font-weight: 300; line-height: 1.15; }
+.ate-section-sub { font-size: 0.9rem; color: var(--ate-gray-600); line-height: 1.85; max-width: 520px; font-weight: 300; }
+
+/* ── STORY SECTION ── */
+.ate-story { max-width: 760px; margin: 0 auto; padding: 8rem 2rem; }
+.ate-story__prose { font-size: 1rem; color: var(--ate-gray-600); line-height: 1.9; margin-bottom: 2rem; font-weight: 300; }
+.ate-story__pullquote {
+  font-family: var(--ate-serif); font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-style: italic; color: var(--ate-charcoal); line-height: 1.45;
+  padding: 2rem 0 2rem 3rem; margin: 2.5rem 0;
+  border-left: 2px solid var(--ate-sage);
+}
+
+/* ── EDITORIAL SERVICES GRID ── */
+.ate-editorial-grid { }
+
+.ate-editorial-featured {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+  border: 1px solid var(--ate-gray-200); margin-bottom: 1px;
+}
+.ate-editorial-featured__img {
+  aspect-ratio: 4/3; background: var(--ate-gray-200); position: relative;
+}
+.ate-editorial-featured__img::after { content: 'Photo'; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 0.65rem; color: var(--ate-gray-400); letter-spacing: 0.2em; text-transform: uppercase; }
+
+.ate-editorial-featured__content { padding: 4rem 3.5rem; display: flex; flex-direction: column; justify-content: center; }
+.ate-editorial-featured__label { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase; color: var(--ate-sage); margin-bottom: 1.25rem; }
+.ate-editorial-featured__name { font-family: var(--ate-serif); font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 300; margin-bottom: 1rem; line-height: 1.15; }
+.ate-editorial-featured__desc { font-size: 0.875rem; color: var(--ate-gray-600); line-height: 1.8; margin-bottom: 1.5rem; font-weight: 300; }
+.ate-editorial-featured__price { font-size: 0.8rem; color: var(--ate-sage); font-weight: 500; letter-spacing: 0.1em; }
+
+.ate-editorial-rest { display: grid; grid-template-columns: repeat(3, 1fr); }
+.ate-editorial-card { padding: 3rem 2.5rem; border-right: 1px solid var(--ate-gray-200); border-bottom: 1px solid var(--ate-gray-200); }
+.ate-editorial-card:last-child { border-right: none; }
+.ate-editorial-card__label { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase; color: var(--ate-sage); margin-bottom: 1rem; }
+.ate-editorial-card__name { font-family: var(--ate-serif); font-size: 1.5rem; font-weight: 300; margin-bottom: 0.75rem; line-height: 1.2; }
+.ate-editorial-card__price { font-size: 0.8rem; color: var(--ate-sage); margin-bottom: 1rem; }
+.ate-editorial-card__desc { font-size: 0.85rem; color: var(--ate-gray-600); line-height: 1.7; font-weight: 300; }
+
+/* ── SERVICES (magazine sub-page) ── */
+.ate-magazine-service { display: grid; gap: 0; }
+.ate-mag-section { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid var(--ate-gray-200); }
+.ate-mag-section:nth-child(even) { direction: rtl; }
+.ate-mag-section:nth-child(even) > * { direction: ltr; }
+.ate-mag-section__img { aspect-ratio: 1/1; background: var(--ate-gray-200); position: relative; }
+.ate-mag-section__img::after { content: 'Photo'; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 0.65rem; color: var(--ate-gray-400); letter-spacing: 0.2em; text-transform: uppercase; }
+.ate-mag-section__content { padding: 5rem 4rem; display: flex; flex-direction: column; justify-content: center; }
+.ate-mag-section__num { font-family: var(--ate-serif); font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--ate-sage); margin-bottom: 1.5rem; }
+.ate-mag-section__name { font-family: var(--ate-serif); font-size: clamp(1.8rem, 2.5vw, 2.5rem); font-weight: 300; margin-bottom: 1rem; line-height: 1.15; }
+.ate-mag-section__price { font-size: 0.8rem; color: var(--ate-sage); margin-bottom: 1.5rem; }
+.ate-mag-section__desc { font-size: 0.9rem; color: var(--ate-gray-600); line-height: 1.85; margin-bottom: 2rem; font-weight: 300; }
+
+/* ── ABOUT (essay typography) ── */
+.ate-essay { max-width: 720px; margin: 0 auto; }
+.ate-essay h2 { font-family: var(--ate-serif); font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 300; margin-bottom: 2rem; line-height: 1.15; }
+.ate-essay p { font-size: 0.95rem; color: var(--ate-gray-600); line-height: 1.95; margin-bottom: 1.75rem; font-weight: 300; }
+.ate-essay__drop { float: left; font-family: var(--ate-serif); font-size: 4.5rem; line-height: 0.8; margin: 0.1em 0.15em 0 0; color: var(--ate-sage); font-weight: 300; }
+.ate-essay-divider { border: none; border-top: 1px solid var(--ate-gray-200); margin: 4rem 0; }
+
+/* ── CONTACT ── */
+.ate-contact-minimal { max-width: 640px; margin: 0 auto; text-align: center; padding: 8rem 2rem; }
+.ate-contact-minimal h1 { font-family: var(--ate-serif); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 300; margin-bottom: 1.25rem; line-height: 1.1; }
+.ate-contact-minimal > p { font-size: 0.9rem; color: var(--ate-gray-600); margin-bottom: 4rem; font-weight: 300; line-height: 1.7; }
+
+.ate-form__group { margin-bottom: 2rem; text-align: left; }
+.ate-form__label { display: block; font-size: 0.65rem; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase; color: var(--ate-gray-400); margin-bottom: 0.75rem; }
+.ate-form__input { width: 100%; background: transparent; border: none; border-bottom: 1px solid var(--ate-gray-200); padding: 0.75rem 0; font-family: var(--ate-serif); font-size: 1rem; color: var(--ate-black); font-weight: 300; transition: border-color 0.3s; }
+.ate-form__input:focus { outline: none; border-color: var(--ate-sage); }
+.ate-form__input::placeholder { color: var(--ate-gray-400); font-family: var(--ate-font); font-size: 0.9rem; }
+textarea.ate-form__input { resize: none; min-height: 100px; }
+
+.ate-contact-details { margin-top: 5rem; padding-top: 3rem; border-top: 1px solid var(--ate-gray-200); }
+.ate-contact-details__item { font-family: var(--ate-serif); font-size: 1.1rem; color: var(--ate-charcoal); margin-bottom: 0.75rem; font-weight: 300; }
+.ate-contact-details__label { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ate-gray-400); display: block; margin-bottom: 0.25rem; }
+
+/* ── FOOTER ── */
+.ate-footer { background: var(--ate-black); color: var(--ate-white); padding: 4rem 3rem 2rem; }
+.ate-footer__inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 3rem; margin-bottom: 3rem; }
+.ate-footer__brand { }
+.ate-footer__logo { font-family: var(--ate-serif); font-size: 1.5rem; font-weight: 300; margin-bottom: 0.75rem; }
+.ate-footer__logo span { font-style: italic; color: var(--ate-sage-light); }
+.ate-footer__brand p { font-size: 0.8rem; color: rgba(255,255,255,0.4); max-width: 240px; line-height: 1.7; font-weight: 300; }
+.ate-footer__col h4 { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase; color: var(--ate-sage-light); margin-bottom: 1.25rem; }
+.ate-footer__col a, .ate-footer__col p { display: block; font-size: 0.8rem; color: rgba(255,255,255,0.4); margin-bottom: 0.6rem; transition: color 0.2s; line-height: 1.65; font-weight: 300; }
+.ate-footer__col a:hover { color: var(--ate-white); }
+.ate-footer__bottom { max-width: 1100px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem; }
+.ate-footer__copy { font-size: 0.7rem; color: rgba(255,255,255,0.25); font-weight: 300; }

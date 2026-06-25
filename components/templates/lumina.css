@@ -1,0 +1,268 @@
+/* ── LUMINA — Sterling Auto Detailing ── */
+/* Dark #0d0d0d, electric purple #7b2fff, glass morphism */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+
+:root {
+  --lum-black: #0d0d0d;
+  --lum-dark: #111118;
+  --lum-purple: #7b2fff;
+  --lum-purple-light: #9d5fff;
+  --lum-purple-dim: rgba(123, 47, 255, 0.15);
+  --lum-white: #ffffff;
+  --lum-gray-100: #1a1a24;
+  --lum-gray-200: #22222e;
+  --lum-gray-400: #8888aa;
+  --lum-gray-600: #55556a;
+  --lum-glass: rgba(255, 255, 255, 0.05);
+  --lum-glass-border: rgba(255, 255, 255, 0.1);
+  --lum-glow: 0 0 40px rgba(123, 47, 255, 0.3);
+  --lum-font: 'Space Grotesk', sans-serif;
+  --lum-mono: 'Space Mono', monospace;
+}
+
+.lum { background: var(--lum-black); color: var(--lum-white); font-family: var(--lum-font); min-height: 100vh; }
+.lum *, .lum *::before, .lum *::after { box-sizing: border-box; margin: 0; padding: 0; }
+.lum a { text-decoration: none; color: inherit; }
+.lum ul { list-style: none; }
+
+/* ── AURORA BACKGROUND ── */
+@keyframes aurora-shift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.lum-aurora {
+  position: absolute; inset: 0;
+  background: linear-gradient(
+    135deg,
+    #0d0d0d 0%, #0d0520 20%, #1a0540 35%,
+    #0d1535 50%, #050a18 65%, #1a1040 80%, #0d0d0d 100%
+  );
+  background-size: 400% 400%;
+  animation: aurora-shift 12s ease infinite;
+}
+
+.lum-aurora::after {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 30% 40%, rgba(123, 47, 255, 0.25) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 60% at 70% 60%, rgba(0, 180, 255, 0.12) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 40% at 50% 80%, rgba(180, 0, 255, 0.15) 0%, transparent 70%);
+}
+
+/* ── NAV ── */
+.lum-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 1.25rem 2rem;
+  backdrop-filter: blur(20px);
+  background: rgba(13, 13, 13, 0.7);
+  border-bottom: 1px solid var(--lum-glass-border);
+  display: flex; align-items: center; justify-content: space-between;
+}
+
+.lum-nav__logo {
+  font-size: 1.2rem; font-weight: 700; letter-spacing: -0.02em;
+}
+.lum-nav__logo span { color: var(--lum-purple); }
+
+.lum-nav__links { display: flex; align-items: center; gap: 2rem; }
+.lum-nav__links a { font-size: 0.875rem; color: var(--lum-gray-400); transition: color 0.2s; }
+.lum-nav__links a:hover { color: var(--lum-white); }
+
+.lum-nav__cta {
+  background: var(--lum-purple) !important; color: var(--lum-white) !important;
+  padding: 0.6rem 1.4rem !important; border-radius: 6px;
+  font-weight: 600; font-size: 0.85rem !important; transition: box-shadow 0.2s !important;
+}
+.lum-nav__cta:hover { box-shadow: var(--lum-glow) !important; }
+
+/* ── HERO ── */
+.lum-hero {
+  position: relative; min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden; padding: 8rem 2rem 4rem;
+}
+
+.lum-hero__card {
+  position: relative; z-index: 2;
+  background: var(--lum-glass);
+  border: 1px solid var(--lum-glass-border);
+  backdrop-filter: blur(24px);
+  border-radius: 20px;
+  padding: 3.5rem 4rem;
+  max-width: 640px; width: 100%;
+  text-align: center;
+  box-shadow: 0 8px 60px rgba(0,0,0,0.5), var(--lum-glow);
+}
+
+.lum-hero__eyebrow {
+  font-family: var(--lum-mono); font-size: 0.7rem;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--lum-purple); margin-bottom: 1.5rem;
+}
+
+.lum-hero__name {
+  font-size: clamp(2.2rem, 6vw, 3.5rem); font-weight: 700;
+  line-height: 1.1; margin-bottom: 0.75rem;
+  letter-spacing: -0.03em;
+}
+
+.lum-hero__tagline {
+  font-size: 1rem; color: var(--lum-gray-400); line-height: 1.7; margin-bottom: 2rem;
+}
+
+.lum-hero__phone {
+  font-family: var(--lum-mono); font-size: 1.1rem;
+  color: var(--lum-purple-light); margin-bottom: 2.5rem; display: block;
+}
+
+.lum-hero__actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+/* ── BUTTONS ── */
+.lum-btn { display: inline-block; padding: 0.85rem 2rem; border-radius: 8px; font-weight: 600; font-size: 0.9rem; transition: all 0.2s; cursor: pointer; border: none; font-family: var(--lum-font); }
+.lum-btn--primary { background: var(--lum-purple); color: var(--lum-white); }
+.lum-btn--primary:hover { box-shadow: var(--lum-glow); transform: translateY(-1px); }
+.lum-btn--ghost { background: transparent; color: var(--lum-white); border: 1px solid var(--lum-glass-border); }
+.lum-btn--ghost:hover { border-color: var(--lum-purple); color: var(--lum-purple); }
+
+/* ── TRUST STRIP ── */
+.lum-trust {
+  border-top: 1px solid var(--lum-glass-border);
+  border-bottom: 1px solid var(--lum-glass-border);
+  background: var(--lum-gray-100);
+}
+
+.lum-trust__inner {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(4, 1fr);
+}
+
+.lum-trust__badge {
+  padding: 2.5rem 2rem; text-align: center;
+  border-right: 1px solid var(--lum-glass-border);
+}
+.lum-trust__badge:last-child { border-right: none; }
+
+.lum-trust__number {
+  display: block; font-size: 2.2rem; font-weight: 700;
+  color: var(--lum-purple); line-height: 1; margin-bottom: 0.4rem;
+  font-family: var(--lum-mono);
+}
+.lum-trust__label { font-size: 0.8rem; color: var(--lum-gray-400); letter-spacing: 0.05em; }
+
+/* ── SECTION WRAPPER ── */
+.lum-section { padding: 7rem 2rem; }
+.lum-container { max-width: 1200px; margin: 0 auto; }
+.lum-section-eyebrow { font-family: var(--lum-mono); font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--lum-purple); margin-bottom: 1rem; }
+.lum-section-title { font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; margin-bottom: 1rem; line-height: 1.2; letter-spacing: -0.02em; }
+.lum-section-sub { color: var(--lum-gray-400); font-size: 1rem; line-height: 1.7; max-width: 560px; }
+
+/* ── GLASS SERVICES GRID ── */
+.lum-services-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+  margin-top: 4rem;
+}
+
+.lum-glass-card {
+  background: var(--lum-glass);
+  border: 1px solid var(--lum-glass-border);
+  backdrop-filter: blur(12px);
+  border-radius: 16px; padding: 2.5rem 2rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex; flex-direction: column;
+}
+.lum-glass-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 30px rgba(123, 47, 255, 0.2);
+  border-color: rgba(123, 47, 255, 0.3);
+}
+
+.lum-glass-card__icon { font-size: 1.8rem; margin-bottom: 1.25rem; }
+.lum-glass-card__name { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; }
+.lum-glass-card__price { font-family: var(--lum-mono); font-size: 0.85rem; color: var(--lum-purple); margin-bottom: 1rem; }
+.lum-glass-card__desc { font-size: 0.875rem; color: var(--lum-gray-400); line-height: 1.7; flex: 1; }
+
+/* ── SPLIT CTA ── */
+.lum-split-cta { display: grid; grid-template-columns: 1fr 1fr; }
+
+.lum-split-cta__left {
+  background: var(--lum-gray-100); padding: 6rem 4rem;
+  display: flex; flex-direction: column; justify-content: center;
+}
+
+.lum-split-cta__right {
+  background: var(--lum-purple); padding: 6rem 4rem;
+  display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
+}
+
+.lum-split-cta__headline { font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 700; margin-bottom: 1rem; line-height: 1.25; letter-spacing: -0.02em; }
+.lum-split-cta__sub { color: var(--lum-gray-400); font-size: 0.95rem; line-height: 1.7; }
+.lum-split-cta__right .lum-split-cta__headline { margin-bottom: 1.5rem; }
+.lum-split-cta__right .lum-split-cta__sub { color: rgba(255,255,255,0.75); margin-bottom: 2.5rem; }
+
+.lum-btn--white { background: var(--lum-white); color: var(--lum-purple); }
+.lum-btn--white:hover { box-shadow: 0 0 30px rgba(255,255,255,0.3); }
+
+/* ── STICKY RAIL (Services page) ── */
+.lum-sticky-rail {
+  overflow-x: auto; scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: 3rem 2rem; gap: 1.5rem; display: flex;
+  scrollbar-width: thin; scrollbar-color: var(--lum-purple) var(--lum-gray-200);
+}
+
+.lum-rail-card {
+  flex: 0 0 320px; scroll-snap-align: start;
+  background: var(--lum-glass); border: 1px solid var(--lum-glass-border);
+  backdrop-filter: blur(12px); border-radius: 16px; padding: 2.5rem 2rem;
+}
+
+.lum-rail-card__num { font-family: var(--lum-mono); font-size: 0.7rem; letter-spacing: 0.15em; color: var(--lum-purple); margin-bottom: 1.5rem; }
+.lum-rail-card__name { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.5rem; }
+.lum-rail-card__duration { font-size: 0.8rem; color: var(--lum-gray-400); margin-bottom: 0.5rem; }
+.lum-rail-card__price { font-family: var(--lum-mono); font-size: 1.1rem; color: var(--lum-purple-light); margin-bottom: 1.5rem; }
+.lum-rail-card__desc { font-size: 0.85rem; color: var(--lum-gray-400); line-height: 1.7; margin-bottom: 2rem; flex: 1; }
+
+/* ── ABOUT SPLIT ── */
+.lum-about-split { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+.lum-about-img { aspect-ratio: 4/5; background: var(--lum-gray-200); border-radius: 16px; position: relative; overflow: hidden; }
+.lum-about-img::after { content: 'Photo'; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: var(--lum-gray-600); font-family: var(--lum-mono); font-size: 0.8rem; letter-spacing: 0.1em; }
+
+.lum-about-text h2 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 700; margin-bottom: 1.5rem; line-height: 1.2; letter-spacing: -0.02em; }
+.lum-about-text p { color: var(--lum-gray-400); line-height: 1.8; margin-bottom: 1.25rem; font-size: 0.95rem; }
+
+.lum-team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 4rem; }
+.lum-team-card { background: var(--lum-glass); border: 1px solid var(--lum-glass-border); border-radius: 12px; padding: 2rem; }
+.lum-team-card__avatar { width: 56px; height: 56px; border-radius: 50%; background: var(--lum-purple-dim); border: 2px solid var(--lum-purple); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1rem; color: var(--lum-purple); margin-bottom: 1rem; }
+.lum-team-card__name { font-weight: 700; margin-bottom: 0.25rem; }
+.lum-team-card__role { font-size: 0.8rem; color: var(--lum-purple); margin-bottom: 0.75rem; font-family: var(--lum-mono); }
+.lum-team-card__bio { font-size: 0.85rem; color: var(--lum-gray-400); line-height: 1.65; }
+
+/* ── CONTACT ── */
+.lum-contact-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 4rem; }
+
+.lum-contact-form { background: var(--lum-glass); border: 1px solid var(--lum-glass-border); backdrop-filter: blur(16px); border-radius: 20px; padding: 3rem; }
+.lum-form__group { margin-bottom: 1.5rem; }
+.lum-form__label { display: block; font-size: 0.75rem; font-family: var(--lum-mono); letter-spacing: 0.1em; color: var(--lum-gray-400); margin-bottom: 0.5rem; }
+.lum-form__input { width: 100%; background: rgba(255,255,255,0.05); border: 1px solid var(--lum-glass-border); border-radius: 8px; padding: 0.9rem 1rem; color: var(--lum-white); font-family: var(--lum-font); font-size: 0.9rem; transition: border-color 0.2s; }
+.lum-form__input:focus { outline: none; border-color: var(--lum-purple); box-shadow: 0 0 0 3px var(--lum-purple-dim); }
+.lum-form__input::placeholder { color: var(--lum-gray-600); }
+textarea.lum-form__input { resize: vertical; min-height: 120px; }
+
+.lum-contact-sidebar { display: flex; flex-direction: column; gap: 2rem; }
+.lum-sidebar-panel { background: var(--lum-glass); border: 1px solid var(--lum-glass-border); border-radius: 16px; padding: 2rem; }
+.lum-sidebar-panel h3 { font-size: 1rem; font-weight: 700; margin-bottom: 1rem; }
+.lum-sidebar-panel p, .lum-sidebar-panel li { font-size: 0.875rem; color: var(--lum-gray-400); line-height: 1.75; }
+
+/* ── FOOTER ── */
+.lum-footer { background: #0a0a10; border-top: 1px solid var(--lum-glass-border); padding: 3rem 2rem; }
+.lum-footer__inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.lum-footer__logo { font-weight: 700; font-size: 1.1rem; }
+.lum-footer__logo span { color: var(--lum-purple); }
+.lum-footer__links { display: flex; gap: 1.5rem; }
+.lum-footer__links a { font-size: 0.8rem; color: var(--lum-gray-400); transition: color 0.2s; }
+.lum-footer__links a:hover { color: var(--lum-white); }
+.lum-footer__copy { font-size: 0.75rem; color: var(--lum-gray-600); }
