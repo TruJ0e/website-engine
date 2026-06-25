@@ -1,14 +1,13 @@
-import { ApexServices } from '@/components/templates';
+import { ApexServices, LuminaServices, KineticServices, MomentumServices, AtelierServices } from '@/components/templates';
 import { getTenantData } from '@/lib/tenant';
+
+const SERVICES = { apex: ApexServices, lumina: LuminaServices, kinetic: KineticServices, momentum: MomentumServices, atelier: AtelierServices };
 
 export default async function TenantServicesPage({ params }) {
   const { tenant } = params;
   const { business, template } = await getTenantData(tenant);
   const basePath = `/_tenants/${tenant}`;
 
-  if (template === 'apex' || !template) {
-    return <ApexServices business={business} basePath={basePath} />;
-  }
-
-  return <div>Template &quot;{template}&quot; not found.</div>;
+  const Component = SERVICES[template] || ApexServices;
+  return <Component business={business} basePath={basePath} />;
 }

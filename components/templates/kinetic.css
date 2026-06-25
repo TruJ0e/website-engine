@@ -1,0 +1,186 @@
+/* ── KINETIC — Forge Tattoo Collective ── */
+/* White bg, bold red #e02020, black text */
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital@1&display=swap');
+
+:root {
+  --kin-white: #ffffff;
+  --kin-black: #0a0a0a;
+  --kin-red: #e02020;
+  --kin-red-dim: rgba(224, 32, 32, 0.08);
+  --kin-gray-100: #f5f5f5;
+  --kin-gray-200: #e8e8e8;
+  --kin-gray-400: #888888;
+  --kin-gray-600: #444444;
+  --kin-font: 'Inter', sans-serif;
+  --kin-display: 'Bebas Neue', cursive;
+  --kin-serif: 'Playfair Display', serif;
+}
+
+.kin { background: var(--kin-white); color: var(--kin-black); font-family: var(--kin-font); min-height: 100vh; }
+.kin *, .kin *::before, .kin *::after { box-sizing: border-box; margin: 0; padding: 0; }
+.kin a { text-decoration: none; color: inherit; }
+.kin ul { list-style: none; }
+
+/* ── NAV ── */
+.kin-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: var(--kin-white); border-bottom: 1px solid var(--kin-gray-200);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.25rem 3rem;
+}
+
+.kin-nav__logo { font-family: var(--kin-display); font-size: 1.6rem; letter-spacing: 0.05em; }
+.kin-nav__logo span { color: var(--kin-red); }
+.kin-nav__links { display: flex; align-items: center; gap: 2.5rem; }
+.kin-nav__links a { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--kin-gray-600); transition: color 0.2s; }
+.kin-nav__links a:hover { color: var(--kin-black); }
+.kin-nav__cta { color: var(--kin-red) !important; border-bottom: 2px solid var(--kin-red); padding-bottom: 2px; }
+
+/* ── HERO ── */
+.kin-hero {
+  position: relative; min-height: 100vh;
+  display: flex; align-items: center;
+  padding: 0 3rem 0 6rem;
+  overflow: hidden;
+}
+
+/* Left scroll bar */
+.kin-hero::before {
+  content: '';
+  position: absolute; left: 3rem; top: 0; bottom: 0;
+  width: 2px; background: var(--kin-gray-200);
+}
+.kin-hero::after {
+  content: '';
+  position: absolute; left: 3rem; top: 0;
+  width: 2px; height: 40%;
+  background: var(--kin-red);
+}
+
+.kin-hero__content { padding-top: 6rem; max-width: 900px; }
+
+.kin-hero__headline {
+  font-family: var(--kin-display);
+  font-size: clamp(6rem, 15vw, 14rem);
+  line-height: 0.9; letter-spacing: -0.01em;
+  color: var(--kin-black); margin-bottom: 2rem;
+}
+.kin-hero__headline em { color: var(--kin-red); font-style: normal; }
+
+.kin-hero__sub { font-size: 1.1rem; color: var(--kin-gray-600); margin-bottom: 3rem; max-width: 480px; line-height: 1.65; }
+.kin-hero__actions { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+
+/* ── BUTTONS ── */
+.kin-btn { display: inline-block; padding: 1rem 2.5rem; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; transition: all 0.2s; border: 2px solid transparent; font-family: var(--kin-font); cursor: pointer; }
+.kin-btn--primary { background: var(--kin-red); color: var(--kin-white); border-color: var(--kin-red); }
+.kin-btn--primary:hover { background: #c01818; border-color: #c01818; }
+.kin-btn--outline { background: transparent; color: var(--kin-black); border-color: var(--kin-black); }
+.kin-btn--outline:hover { background: var(--kin-black); color: var(--kin-white); }
+
+/* ── FEATURE GRID ── */
+.kin-feature-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--kin-gray-200);
+}
+
+.kin-feature-card {
+  padding: 4rem 3rem; border-right: 1px solid var(--kin-gray-200);
+  transition: background 0.2s;
+}
+.kin-feature-card:last-child { border-right: none; }
+.kin-feature-card:hover { background: var(--kin-red-dim); }
+
+.kin-feature-card__num {
+  font-family: var(--kin-display); font-size: 5rem; line-height: 1;
+  color: var(--kin-red); margin-bottom: 1.5rem;
+}
+.kin-feature-card__title { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.75rem; }
+.kin-feature-card__desc { font-size: 0.9rem; color: var(--kin-gray-600); line-height: 1.7; }
+
+/* ── PORTFOLIO GRID (masonry-style) ── */
+.kin-portfolio { padding: 6rem 3rem; background: var(--kin-black); }
+.kin-portfolio-header { margin-bottom: 3rem; }
+.kin-portfolio-header h2 { font-family: var(--kin-display); font-size: clamp(2.5rem, 5vw, 4rem); color: var(--kin-white); margin-bottom: 0.5rem; }
+.kin-portfolio-header p { font-size: 0.9rem; color: var(--kin-gray-400); }
+
+.kin-portfolio-grid {
+  columns: 3; column-gap: 1rem;
+}
+
+.kin-portfolio-item {
+  break-inside: avoid; margin-bottom: 1rem; position: relative;
+  overflow: hidden; cursor: pointer;
+}
+
+.kin-portfolio-thumb {
+  width: 100%; display: block; background: var(--kin-gray-600);
+}
+
+.kin-portfolio-item:nth-child(3n+1) .kin-portfolio-thumb { aspect-ratio: 3/4; }
+.kin-portfolio-item:nth-child(3n+2) .kin-portfolio-thumb { aspect-ratio: 1/1; }
+.kin-portfolio-item:nth-child(3n)   .kin-portfolio-thumb { aspect-ratio: 4/5; }
+
+.kin-portfolio-overlay {
+  position: absolute; inset: 0; background: rgba(224, 32, 32, 0.85);
+  display: flex; align-items: flex-end; padding: 1.5rem;
+  opacity: 0; transition: opacity 0.3s;
+}
+.kin-portfolio-item:hover .kin-portfolio-overlay { opacity: 1; }
+.kin-portfolio-overlay span { color: var(--kin-white); font-weight: 700; font-size: 0.9rem; letter-spacing: 0.05em; }
+
+/* ── MINIMAL CTA ── */
+.kin-minimal-cta {
+  padding: 10rem 3rem; text-align: center;
+  border-top: 1px solid var(--kin-gray-200);
+}
+.kin-minimal-cta h2 { font-family: var(--kin-display); font-size: clamp(2rem, 4vw, 3.5rem); margin-bottom: 0.75rem; }
+.kin-minimal-cta p { font-size: 1rem; color: var(--kin-gray-600); margin-bottom: 3rem; }
+
+.kin-btn--outline-red { background: transparent; color: var(--kin-red); border: 2px solid var(--kin-red); padding: 1rem 3rem; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; transition: all 0.2s; display: inline-block; font-family: var(--kin-font); }
+.kin-btn--outline-red:hover { background: var(--kin-red); color: var(--kin-white); }
+
+/* ── SERVICES GRID (sub-page) ── */
+.kin-services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; background: var(--kin-gray-200); }
+.kin-service-card { background: var(--kin-white); padding: 3.5rem 3rem; }
+.kin-service-card:hover { background: var(--kin-red-dim); }
+.kin-service-card__icon { font-size: 2rem; margin-bottom: 1rem; }
+.kin-service-card__num { font-family: var(--kin-display); font-size: 1rem; color: var(--kin-red); letter-spacing: 0.1em; margin-bottom: 0.75rem; }
+.kin-service-card__name { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.5rem; }
+.kin-service-card__price { font-size: 0.85rem; color: var(--kin-red); font-weight: 600; margin-bottom: 1rem; }
+.kin-service-card__desc { font-size: 0.9rem; color: var(--kin-gray-600); line-height: 1.7; margin-bottom: 2rem; }
+
+/* ── ABOUT FULL-WIDTH SECTIONS ── */
+.kin-about-section { padding: 6rem 3rem; }
+.kin-about-section--dark { background: var(--kin-black); color: var(--kin-white); }
+.kin-about-interlude { aspect-ratio: 21/9; background: var(--kin-gray-600); position: relative; }
+.kin-about-interlude--dark { background: #1a1a1a; }
+.kin-about-interlude__label { position: absolute; bottom: 1.5rem; left: 2rem; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.5); }
+
+/* ── CONTACT — Artist bios ── */
+.kin-artist-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+.kin-artist-card { text-align: center; }
+.kin-artist-card__photo { aspect-ratio: 3/4; background: var(--kin-gray-200); margin-bottom: 1.25rem; position: relative; }
+.kin-artist-card__photo::after { content: 'Artist Photo'; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: var(--kin-gray-400); }
+.kin-artist-card__name { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.25rem; }
+.kin-artist-card__role { font-size: 0.8rem; color: var(--kin-red); font-weight: 600; letter-spacing: 0.05em; margin-bottom: 0.75rem; }
+.kin-artist-card__bio { font-size: 0.85rem; color: var(--kin-gray-600); line-height: 1.65; }
+
+/* ── FOOTER ── */
+.kin-footer { background: var(--kin-black); color: var(--kin-white); padding: 3rem; }
+.kin-footer__inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; }
+.kin-footer__logo { font-family: var(--kin-display); font-size: 1.4rem; }
+.kin-footer__logo span { color: var(--kin-red); }
+.kin-footer__links { display: flex; gap: 2rem; }
+.kin-footer__links a { font-size: 0.8rem; color: var(--kin-gray-400); letter-spacing: 0.05em; transition: color 0.2s; }
+.kin-footer__links a:hover { color: var(--kin-white); }
+.kin-footer__copy { font-size: 0.75rem; color: var(--kin-gray-400); }
+
+/* ── CONTACT FORM ── */
+.kin-contact-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 5rem; }
+.kin-form__group { margin-bottom: 1.5rem; }
+.kin-form__label { display: block; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--kin-gray-600); margin-bottom: 0.5rem; }
+.kin-form__input { width: 100%; background: transparent; border: none; border-bottom: 1px solid var(--kin-gray-200); padding: 0.75rem 0; color: var(--kin-black); font-family: var(--kin-font); font-size: 0.95rem; transition: border-color 0.2s; }
+.kin-form__input:focus { outline: none; border-color: var(--kin-red); }
+.kin-form__input::placeholder { color: var(--kin-gray-400); }
+textarea.kin-form__input { resize: none; min-height: 100px; }

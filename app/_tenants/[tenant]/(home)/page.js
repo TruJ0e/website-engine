@@ -1,15 +1,13 @@
-import { Apex } from '@/components/templates';
+import { Apex, Lumina, Kinetic, Momentum, Atelier } from '@/components/templates';
 import { getTenantData } from '@/lib/tenant';
+
+const HOMES = { apex: Apex, lumina: Lumina, kinetic: Kinetic, momentum: Momentum, atelier: Atelier };
 
 export default async function TenantHomePage({ params }) {
   const { tenant } = params;
   const { business, template } = await getTenantData(tenant);
   const basePath = `/_tenants/${tenant}`;
 
-  // Route to the right template — Apex is the default
-  if (template === 'apex' || !template) {
-    return <Apex business={business} basePath={basePath} />;
-  }
-
-  return <div>Template &quot;{template}&quot; not found.</div>;
+  const Component = HOMES[template] || Apex;
+  return <Component business={business} basePath={basePath} />;
 }
